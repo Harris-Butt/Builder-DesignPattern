@@ -6,7 +6,16 @@ namespace BuilderDesignPattern
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Report report;
+            ReportDirector reportDirector = new ReportDirector();
+            PdfReport pdfReport = new PdfReport();
+            report = reportDirector.MakeReport(pdfReport);
+            report.DisplayReport();
+            ExcelReport excelReport = new ExcelReport();
+            report = reportDirector.MakeReport(excelReport);
+            report.DisplayReport();
+            
+            
         }
     }
 }
